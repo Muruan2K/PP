@@ -1,0 +1,14 @@
+import re
+import io
+
+
+with open('./origin.txt','r+',encoding='utf-8') as fp:
+    s = fp.read()
+    s = re.sub(r"(.{8})", "\\1\r\n", s)
+    s = re.sub("\n", "", s)
+    s = re.sub(" ", "", s)
+    out = open('./searchword.txt','w',encoding='utf-8')
+    out.write(s)
+    out.close()
+    fp.close()
+    
